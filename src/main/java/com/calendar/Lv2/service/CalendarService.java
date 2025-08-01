@@ -1,9 +1,9 @@
-package com.calendar.Lv1.service;
+package com.calendar.Lv2.service;
 
-import com.calendar.Lv1.dto.CalendarRequestDto;
-import com.calendar.Lv1.dto.CalendarResponseDto;
-import com.calendar.Lv1.entity.Calendar;
-import com.calendar.Lv1.repository.CalendarRepository;
+import com.calendar.Lv2.dto.CalendarRequestDto;
+import com.calendar.Lv2.dto.CalendarResponseDto;
+import com.calendar.Lv2.entity.Calendar;
+import com.calendar.Lv2.repository.CalendarRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,4 +1,4 @@
-package com.calendar.Lv1.entity;
+package com.calendar.Lv2.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
