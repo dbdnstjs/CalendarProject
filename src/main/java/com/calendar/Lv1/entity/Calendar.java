@@ -19,8 +19,4 @@ public class Calendar extends Base{
     public Calendar(String content) {
         this.content = content;
     }
-
-    public void updateCalendar(String content) {
-        this.content = content;
-    }
 }

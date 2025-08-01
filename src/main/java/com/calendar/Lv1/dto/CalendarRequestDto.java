@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Getter // 모든 필드 getter 메서드 자동 생성
 @Setter
 @NoArgsConstructor //Lombok이 기본 생성자 자동 생성
