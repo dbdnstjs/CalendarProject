@@ -7,16 +7,25 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @RequiredArgsConstructor
-public class Calendar extends Base{
+public class Calendar extends Base {
     @Id //기본 키(PK) 지정
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // DB가 자동으로 숫자 증가시켜서 ID를 생성
     private Long id;
-    private String content;
 
-    public Calendar(String content) {
+    private String title;
+    private String content;
+    private String name;
+    private String password;
+
+    public Calendar(String title, String content, String name, String password) {
+        this.title = title;
         this.content = content;
+        this.name = name;
+        this.password = password;
     }
 }

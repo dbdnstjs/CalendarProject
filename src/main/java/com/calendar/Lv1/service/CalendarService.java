@@ -17,12 +17,19 @@ public class CalendarService {
 
     @Transactional //트랜잭션을 시작하고, 끝날 때 커밋 또는 롤백
     public CalendarResponseDto save(CalendarRequestDto request) {
-        Calendar calendar = new Calendar(request.getContent());
+        Calendar calendar = new Calendar(
+                request.getTitle(),
+                request.getContent(),
+                request.getName(),
+                request.getPassword()
+        );
         Calendar saveCalendar = calendarRepository.save(calendar);
 
         return new CalendarResponseDto(
                 saveCalendar.getId(),
+                saveCalendar.getTitle(),
                 saveCalendar.getContent(),
+                saveCalendar.getName(),
                 saveCalendar.getCreateAt(),
                 saveCalendar.getUpdateAt()
         );
@@ -33,7 +40,9 @@ public class CalendarService {
         return calendars.stream()
                 .map(calendar -> new CalendarResponseDto(
                         calendar.getId(),
+                        calendar.getTitle(),
                         calendar.getContent(),
+                        calendar.getName(),
                         calendar.getCreateAt(),
                         calendar.getUpdateAt()
                 ))

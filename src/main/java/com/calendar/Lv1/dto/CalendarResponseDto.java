@@ -9,13 +9,17 @@ import java.time.LocalDateTime;
 @NoArgsConstructor //Lombok이 기본 생성자 자동 생성
 public class CalendarResponseDto {
     private Long id;
+    private String title;
     private String content;
+    private String name;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public CalendarResponseDto(Long id, String content, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public CalendarResponseDto(Long id, String title, String content, String name, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
+        this.title = title;
         this.content = content;
+        this.name = name;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
