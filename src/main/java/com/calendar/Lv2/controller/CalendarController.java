@@ -5,10 +5,7 @@ import com.calendar.Lv2.dto.CalendarResponseDto;
 import com.calendar.Lv2.service.CalendarService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +22,10 @@ public class CalendarController {
     @GetMapping("/calendars") //HTTP GET 요청 처리
     public ResponseEntity<List<CalendarResponseDto>> getCalendars() {
         return ResponseEntity.ok(calendarService.findCalendars());
+    }
+
+    @GetMapping("/calendars/{calendarId}")
+    public ResponseEntity<CalendarResponseDto> getCalendarId(@PathVariable("calendarId") Long calendarId) {
+        return ResponseEntity.ok(calendarService.findId(calendarId));
     }
 }

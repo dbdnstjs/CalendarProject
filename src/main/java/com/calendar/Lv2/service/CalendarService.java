@@ -48,4 +48,18 @@ public class CalendarService {
                 ))
                 .toList();
     }
+    @Transactional(readOnly = true)
+    public CalendarResponseDto findId(Long id) {
+        Calendar calendar = calendarRepository.findById(id).orElseThrow(
+                ()-> new IllegalArgumentException("Calendar with id " + id + " does not exist")
+        );
+        return new CalendarResponseDto(
+                calendar.getId(),
+                calendar.getTitle(),
+                calendar.getContent(),
+                calendar.getName(),
+                calendar.getCreateAt(),
+                calendar.getUpdateAt()
+        );
+    }
 }
