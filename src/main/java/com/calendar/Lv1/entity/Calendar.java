@@ -7,8 +7,6 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Entity
 @Getter
 @RequiredArgsConstructor
