@@ -36,7 +36,8 @@ public class CalendarService {
     }
     @Transactional(readOnly = true) // 읽기 전용 트랜잭션으로 설정
     public List<CalendarResponseDto> findCalendars() {
-        List<Calendar> calendars = calendarRepository.findAll();
+        List<Calendar> calendars = calendarRepository.findAllByOrderByUpdateAtDesc();
+
         return calendars.stream()
                 .map(calendar -> new CalendarResponseDto(
                         calendar.getId(),
@@ -62,4 +63,6 @@ public class CalendarService {
                 calendar.getUpdateAt()
         );
     }
+
+
 }
