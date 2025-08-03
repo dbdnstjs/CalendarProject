@@ -29,5 +29,8 @@ public class CalendarController {
         return ResponseEntity.ok(calendarService.findId(calendarId));
     }
 
-
+    @PutMapping("/calendars/{calendarId}")
+    public ResponseEntity<CalendarResponseDto> updateCalendar(@PathVariable("calendarId") Long calendarId, @RequestBody CalendarRequestDto requestDto) {
+        return ResponseEntity.ok(calendarService.updateCalendarTitle(calendarId, requestDto));
+    }
 }

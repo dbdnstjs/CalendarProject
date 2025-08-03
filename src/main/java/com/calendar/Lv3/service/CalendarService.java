@@ -64,5 +64,24 @@ public class CalendarService {
         );
     }
 
+    @Transactional
+    public CalendarResponseDto updateCalendarTitle(Long id, CalendarRequestDto request) {
+        Calendar calendar = calendarRepository.findById(id).orElseThrow(
+                ()-> new IllegalArgumentException("Calendar with id " + id + " does not exist")
+        );
 
+        if(!calendar.getPassword().equals(request.getPassword())){
+            throw new IllegalArgumentException("Passwords do not match");
+        }
+
+        calendar.updateCalendarTitle(request.getTitle(), request.getName());
+        return new CalendarResponseDto(
+                calendar.getId(),
+                calendar.getTitle(),
+                calendar.getContent(),
+                calendar.getName(),
+                calendar.getCreateAt(),
+                calendar.getUpdateAt()
+        );
+    }
 }

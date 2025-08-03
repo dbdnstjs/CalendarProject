@@ -26,4 +26,9 @@ public class Calendar extends Base {
         this.name = name;
         this.password = password;
     }
+
+    public void updateCalendarTitle(String title, String name){
+        this.title = title;
+        this.name = name;
+    }
 }
