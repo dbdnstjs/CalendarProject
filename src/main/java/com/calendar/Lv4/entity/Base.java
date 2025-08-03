@@ -16,9 +16,9 @@ public class Base {
     @CreatedDate // 엔티티가 처음 저장될 때 자동으로 현재 시간을 저장
     @Column(updatable = false) // 저장 후 수정 불가능
     @Temporal(TemporalType.TIMESTAMP) // 날짜 + 시간 형태로 저장
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
 
     @LastModifiedDate //  엔티티가 수정될 때마다 자동으로 현재 시간을 저장
     @Temporal(TemporalType.TIMESTAMP) // 날짜 + 시간 형태로 저장
-    private LocalDateTime updateAt;
+    private LocalDateTime updatedAt;
 }

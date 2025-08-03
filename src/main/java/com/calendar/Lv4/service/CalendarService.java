@@ -30,13 +30,13 @@ public class CalendarService {
                 saveCalendar.getTitle(),
                 saveCalendar.getContent(),
                 saveCalendar.getName(),
-                saveCalendar.getCreateAt(),
-                saveCalendar.getUpdateAt()
+                saveCalendar.getCreatedAt(),
+                saveCalendar.getUpdatedAt()
         );
     }
     @Transactional(readOnly = true) // 읽기 전용 트랜잭션으로 설정
     public List<CalendarResponseDto> findCalendars() {
-        List<Calendar> calendars = calendarRepository.findAllByOrderByUpdateAtDesc();
+        List<Calendar> calendars = calendarRepository.findAllByOrderByUpdatedAtDesc();
 
         return calendars.stream()
                 .map(calendar -> new CalendarResponseDto(
@@ -44,8 +44,8 @@ public class CalendarService {
                         calendar.getTitle(),
                         calendar.getContent(),
                         calendar.getName(),
-                        calendar.getCreateAt(),
-                        calendar.getUpdateAt()
+                        calendar.getCreatedAt(),
+                        calendar.getUpdatedAt()
                 ))
                 .toList();
     }
@@ -59,8 +59,8 @@ public class CalendarService {
                 calendar.getTitle(),
                 calendar.getContent(),
                 calendar.getName(),
-                calendar.getCreateAt(),
-                calendar.getUpdateAt()
+                calendar.getCreatedAt(),
+                calendar.getUpdatedAt()
         );
     }
 
@@ -80,8 +80,8 @@ public class CalendarService {
                 calendar.getTitle(),
                 calendar.getContent(),
                 calendar.getName(),
-                calendar.getCreateAt(),
-                calendar.getUpdateAt()
+                calendar.getCreatedAt(),
+                calendar.getUpdatedAt()
         );
     }
 
