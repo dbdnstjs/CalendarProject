@@ -173,5 +173,5 @@ GlobalExceptionHandler: 전역 예외 처리 클래스
 ```json
   {
         "password": "1234"
-    }
+  }
 ```
