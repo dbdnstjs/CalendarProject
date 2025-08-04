@@ -1,3 +1,34 @@
+## 🗂 ERD
+
+```diff
+[Calendar]
+- id: Long (PK)
+- title: String
+- content: String
+- name: String
+- password: String
+- createdAt: LocalDateTime
+- updatedAt: LocalDateTime
+```
+
+## 🧾 클래스 구성 요약
+
+Calendar: 일정 정보를 담는 JPA Entity 클래스
+
+Base: 생성일, 수정일 자동 관리 상위 클래스
+
+CalendarRequestDto: 일정 생성 요청용 DTO
+
+CalendarResponseDto: 일정 응답용 DTO
+
+CalendarRepository: JPA 인터페이스
+
+CalendarService: 비즈니스 로직
+
+CalendarController: REST API 요청 처리
+
+GlobalExceptionHandler: 전역 예외 처리 클래스
+
 # 📅 Lv1 Calendar API
 
 간단한 일정 관리 API 서비스입니다. 사용자가 제목, 내용, 이름, 비밀번호를 입력하여 일정을 등록하고, 전체 일정을 조회할 수 있습니다.
@@ -8,7 +39,7 @@
 
 ### 📌 일정 등록
 
-- **URL**: `POST / localhost:8080/calendars`
+- **URL**: `POST /localhost:8080/calendars`
 - Response (200 OK)
 - **Request Body**
 ```json
@@ -33,9 +64,9 @@
 
 ### 📌 일정 전체 조회
 
-- **URL**: `GET / localhost:8080/calendars`
+- **URL**: `GET /localhost:8080/calendars`
 - Response (200 OK)
-- **Request Body**
+- **Response Body**
 ```json
   {
         "id": 1,
@@ -55,37 +86,6 @@
     }
 ```
 
-## 🗂 ERD
-
-```diff
-[Calendar]
-- id: Long (PK)
-- title: String
-- content: String
-- name: String
-- password: String
-- createdAt: LocalDateTime
-- updatedAt: LocalDateTime
-```
-
-## 🧾 클래스 구성 요약
-
-Calendar: 일정 Entity
-
-Base: 생성일, 수정일 공통 필드 상속용
-
-CalendarRequestDto: 일정 생성 요청 DTO
-
-CalendarResponseDto: 일정 응답 DTO
-
-CalendarRepository: JPA 인터페이스
-
-CalendarService: 비즈니스 로직
-
-CalendarController: API 컨트롤러
-
-GlobalExceptionHandler: 애플리케이션 전역에서 발생하는 예외를 잡아 HTTP 응답으로 변환
-
 ---
 
 # 📅 Lv2 Calendar API
@@ -97,10 +97,9 @@ GlobalExceptionHandler: 애플리케이션 전역에서 발생하는 예외를 �
 ## 🔗 API 명세서
 
 ### 📌 개별 일정 조회
-
-- **URL**: `GET / localhost:8080/calendars/{calendarId}`
+- **URL**: `GET /localhost:8080/calendars/{calendarId}`
 - Response (200 OK)
-- **Request Body**
+- **Response Body**
 ```json
   {
         "id": 1,
@@ -111,10 +110,10 @@ GlobalExceptionHandler: 애플리케이션 전역에서 발생하는 예외를 �
         "updatedAt": "2025-08-04T09:50:12.957505"
     }
 ```
-### 📌 개별 일정 조회 실패 시
 
+### 📌 개별 일정 조회 실패 시
 - Response (400 Bad Request)
-- **Request Body**
+- **Response Body**
 ```json
 {
     "error": "Bad Request",
@@ -123,39 +122,6 @@ GlobalExceptionHandler: 애플리케이션 전역에서 발생하는 예외를 �
     "status": 400
 }
 ```
-
-## 🗂 ERD
-
-```diff
-[Calendar]
-- id: Long (PK)
-- title: String
-- content: String
-- name: String
-- password: String
-- createdAt: LocalDateTime
-- updatedAt: LocalDateTime
-```
-
-## 🧾 클래스 구성 요약
-
-CalendarController: REST API 엔드포인트를 담당하며 요청을 서비스로 전달
-
-CalendarService: 비즈니스 로직 담당, 트랜잭션 관리 및 DB 저장/조회 처리
-
-CalendarRepository: JPA를 이용한 DB CRUD 인터페이스
-
-Calendar: JPA Entity, 일정 정보를 담고 있는 테이블 매핑 클래스
-
-Base: 생성일(createdAt), 수정일(updatedAt) 자동 관리하는 상위 엔티티
-
-CalendarRequestDto: 클라이언트에서 전달받는 일정 생성/수정용 데이터 전송 객체
-
-CalendarResponseDto: 클라이언트에 반환하는 일정 조회용 데이터 전송 객체
-
-GlobalExceptionHandler: 애플리케이션 전역에서 발생하는 예외를 잡아 HTTP 응답으로 변환
-
----
 
 # 📅 Lv3 Calendar API
 
@@ -188,38 +154,6 @@ GlobalExceptionHandler: 애플리케이션 전역에서 발생하는 예외를 �
 }
 ```
 
-## 🗂 ERD
-
-```diff
-[Calendar]
-- id: Long (PK)
-- title: String
-- content: String
-- name: String
-- password: String
-- createdAt: LocalDateTime
-- updatedAt: LocalDateTime
-```
-
-🧾 클래스 구성 요약
-Calendar: JPA Entity, 일정 정보를 담고 있는 테이블 매핑 클래스
-
-Base: 생성일, 수정일 자동 관리용 상위 클래스
-
-CalendarRequestDto: 클라이언트 요청용 DTO (title, content, name, password)
-
-CalendarResponseDto: 클라이언트 응답용 DTO (id, title, content, name, createdAt, updatedAt)
-
-CalendarRepository: JPA 인터페이스, DB 접근 담당
-
-CalendarService: 비즈니스 로직 처리, 일정 저장/조회/수정 및 비밀번호 검증
-
-CalendarController: REST API 요청 처리 (POST, GET, PUT)
-
-GlobalExceptionHandler: 애플리케이션 전역에서 발생하는 예외를 잡아 HTTP 응답으로 변환
-
----
-
 # 📅 Lv4 Calendar API
 
 비밀번호를 통한 간단한 인증 기능이 포함된 일정 관리 API 서비스입니다.  
@@ -230,8 +164,7 @@ GlobalExceptionHandler: 애플리케이션 전역에서 발생하는 예외를 �
 ## 🔗 API 명세서
 
 ### 📌 개별 일정 삭제
-
-- **URL**: `GET / localhost:8080/calendars/{calendarId}`
+- **URL**: `Delete /localhost:8080/calendars/{calendarId}`
 - Response (200 OK)
 - **Request Body**
 ```json
@@ -239,36 +172,3 @@ GlobalExceptionHandler: 애플리케이션 전역에서 발생하는 예외를 �
         "password": "1234"
     }
 ```
-
-## 🗂 ERD
-
-```diff
-[Calendar]
-- id: Long (PK)
-- title: String
-- content: String
-- name: String
-- password: String
-- createdAt: LocalDateTime
-- updatedAt: LocalDateTime
-```
-
-## 🧾 클래스 구성 요약
-
-Calendar: 일정 엔티티 (DB 테이블 매핑)
-
-Base: 생성일, 수정일 자동 관리용 상위 클래스
-
-CalendarRequestDto: 클라이언트 요청용 DTO (title, content, name, password)
-
-CalendarResponseDto: 클라이언트 응답용 DTO (id, title, content, name, createdAt, updatedAt)
-
-CalendarRepository: JPA 인터페이스, DB 접근 담당
-
-CalendarService: 비즈니스 로직 처리, 일정 CRUD 및 비밀번호 검증
-
-CalendarController: REST API 요청 처리 (POST, GET, PUT, DELETE)
-
-Lv4CalendarApplication: Spring Boot 메인 애플리케이션, JPA Auditing 활성화
-
----
