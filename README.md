@@ -84,6 +84,8 @@ CalendarService: 비즈니스 로직
 
 CalendarController: API 컨트롤러
 
+GlobalExceptionHandler: 애플리케이션 전역에서 발생하는 예외를 잡아 HTTP 응답으로 변환
+
 ---
 
 # 📅 Lv2 Calendar API
@@ -137,23 +139,24 @@ CalendarController: API 컨트롤러
 
 ## 🧾 클래스 구성 요약
 
-CalendarController	REST API 엔드포인트를 담당하며 요청을 서비스로 전달
+CalendarController: REST API 엔드포인트를 담당하며 요청을 서비스로 전달
 
-CalendarService	비즈니스 로직 담당, 트랜잭션 관리 및 DB 저장/조회 처리
+CalendarService: 비즈니스 로직 담당, 트랜잭션 관리 및 DB 저장/조회 처리
 
-CalendarRepository	JPA를 이용한 DB CRUD 인터페이스
+CalendarRepository: JPA를 이용한 DB CRUD 인터페이스
 
-Calendar	JPA Entity, 일정 정보를 담고 있는 테이블 매핑 클래스
+Calendar: JPA Entity, 일정 정보를 담고 있는 테이블 매핑 클래스
 
-Base	생성일(createdAt), 수정일(updatedAt) 자동 관리하는 상위 엔티티
+Base: 생성일(createdAt), 수정일(updatedAt) 자동 관리하는 상위 엔티티
 
-CalendarRequestDto	클라이언트에서 전달받는 일정 생성/수정용 데이터 전송 객체
+CalendarRequestDto: 클라이언트에서 전달받는 일정 생성/수정용 데이터 전송 객체
 
-CalendarResponseDto	클라이언트에 반환하는 일정 조회용 데이터 전송 객체
+CalendarResponseDto: 클라이언트에 반환하는 일정 조회용 데이터 전송 객체
 
-GlobalExceptionHandler 애플리케이션 전역에서 발생하는 예외를 잡아 HTTP 응답으로 변환
+GlobalExceptionHandler: 애플리케이션 전역에서 발생하는 예외를 잡아 HTTP 응답으로 변환
 
 ---
+
 
 
 
