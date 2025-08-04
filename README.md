@@ -50,7 +50,7 @@ GlobalExceptionHandler: 전역 예외 처리 클래스
     "password": "1234"
   }
 ```
-
+- **Response Body**
 ```json
 {
     "id": 1,
