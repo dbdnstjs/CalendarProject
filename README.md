@@ -1,16 +1,3 @@
-## 🗂 ERD
-
-```diff
-[Calendar]
-- id: Long (PK)
-- title: String
-- content: String
-- name: String
-- password: String
-- createdAt: LocalDateTime
-- updatedAt: LocalDateTime
-```
-
 ## 🧾 클래스 구성 요약
 
 Calendar: 일정 정보를 담는 JPA Entity 클래스
@@ -28,6 +15,19 @@ CalendarService: 비즈니스 로직
 CalendarController: REST API 요청 처리
 
 GlobalExceptionHandler: 전역 예외 처리 클래스
+
+## 🗂 ERD
+
+```diff
+[Calendar]
+- id: Long (PK)
+- title: String
+- content: String
+- name: String
+- password: String
+- createdAt: LocalDateTime
+- updatedAt: LocalDateTime
+```
 
 # 📅 Lv1 Calendar API
 
@@ -68,6 +68,7 @@ GlobalExceptionHandler: 전역 예외 처리 클래스
 - Response (200 OK)
 - **Response Body**
 ```json
+[
   {
         "id": 1,
         "title": "api 공부",
@@ -84,6 +85,7 @@ GlobalExceptionHandler: 전역 예외 처리 클래스
         "createdAt": "2025-08-04T09:56:30.450859",
         "updatedAt": "2025-08-04T09:56:30.450859"
     }
+]
 ```
 
 ---
@@ -164,7 +166,7 @@ GlobalExceptionHandler: 전역 예외 처리 클래스
 ## 🔗 API 명세서
 
 ### 📌 개별 일정 삭제
-- **URL**: `Delete /localhost:8080/calendars/{calendarId}`
+- **URL**: `DELETE /localhost:8080/calendars/{calendarId}`
 - Response (200 OK)
 - **Request Body**
 ```json
